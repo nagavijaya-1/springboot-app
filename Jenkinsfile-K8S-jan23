@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "public.ecr.aws/m1a4n7e1/vjnaveen"
+        registry = "654654528520.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
     }
     
     stages {
@@ -28,8 +28,8 @@ pipeline {
         
         stage ("Push to ECR") {
             steps {
-                sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m1a4n7e1"
-                sh "docker push public.ecr.aws/m1a4n7e1/vjnaveen:latest"
+                sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 654654528520.dkr.ecr.us-east-1.amazonaws.com"
+                sh "docker push 654654528520.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest"
                 
             }
         }
